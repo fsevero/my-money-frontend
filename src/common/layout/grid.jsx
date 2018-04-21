@@ -30,7 +30,7 @@ export default class Grid extends Component {
 
     return (
       <div className={gridClasses}>
-        {props.children}
+        {this.props.children}
       </div>
     )
   }
