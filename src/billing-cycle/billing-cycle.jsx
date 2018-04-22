@@ -13,6 +13,8 @@ import TabContent from '../common/tabs/tab.content'
 
 import { selectTab, showTabs } from "../common/tabs/tab.actions";
 
+import BillingCycleList from './billing-cycle.list'
+
 class BillingCycle extends Component {
   componentWillMount() {
     this.props.selectTab('tablist')
@@ -32,7 +34,9 @@ class BillingCycle extends Component {
               <TabHeader label="Delete" icon="trash-o" target="tabdelete" />
             </TabsHeader>
             <TabsContent>
-              <TabContent id="tablist">TabList</TabContent>
+              <TabContent id="tablist">
+                <BillingCycleList />
+              </TabContent>
               <TabContent id="tabcreate">TabCreate</TabContent>
               <TabContent id="tabupdate">TabUpdate</TabContent>
               <TabContent id="tabdelete">TabDelete</TabContent>
