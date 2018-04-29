@@ -9,14 +9,14 @@ import { init } from "../billing-cycle/billing-cycle.actions";
 class BillingCycleForm extends Component {
   render() {
 
-    const {handleSubmit} = this.props
+    const {handleSubmit, readOnly} = this.props
 
     return (
       <form role="form" onSubmit={handleSubmit}>
         <div className="box-body">
-          <Field name="name" component={InputDefault} label="Name" cols="12 4" placeholder="Name the billing cycle" />
-          <Field name="month" component={InputDefault} label="Month" cols="12 4" placeholder="Which month?" />
-          <Field name="year" component={InputDefault} label="Year" cols="12 4" placeholder="Which year?" />
+          <Field name="name" component={InputDefault} label="Name" cols="12 4" placeholder="Name the billing cycle" readOnly={readOnly} />
+          <Field name="month" component={InputDefault} label="Month" cols="12 4" placeholder="Which month?" readOnly={readOnly} />
+          <Field name="year" component={InputDefault} label="Year" cols="12 4" placeholder="Which year?" readOnly={readOnly} />
         </div>
         <div className="box-footer">
           <button type="submit" className="btn btn-primary">Submit</button>
