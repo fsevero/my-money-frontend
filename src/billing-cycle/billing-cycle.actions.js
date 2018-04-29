@@ -17,11 +17,19 @@ export function getList() {
 }
 
 export function create(values) {
+  return submit(values, 'post');
+}
 
+export function update(values) {
+  return submit(values, 'put');
+}
+
+function submit(values, method) {
   return dispatch => {
-    axios.post(`${BASE_URL}/billing-cycles`, values)
+    const id = values._id || ''
+    axios[method](`${BASE_URL}/billing-cycles/${id}`, values)
       .then(resp => {
-        toastr.success('Success', 'Billing cycle registered')
+        toastr.success('Success', 'Billing cycle saved')
         dispatch(init())
       })
       .catch(e => {
