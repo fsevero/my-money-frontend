@@ -7,13 +7,16 @@ import InputSimple from "../common/form/input.simple"
 class CreditList extends Component {
 
   renderRows() {
-    return (
-      <tr>
-        <td><Field name="credits.0.name" component={InputSimple} placeholder="Description" readOnly={this.props.readOnly} /></td>
-        <td><Field name="credits.0.value" component={InputSimple} placeholder="Value" readOnly={this.props.readOnly} /></td>
+
+    const list = this.props.list || []
+
+    return list.map((item, index) => (
+      <tr key={index}>
+        <td><Field name={`credits.${index}.name`} component={InputSimple} placeholder="Description" readOnly={this.props.readOnly} /></td>
+        <td><Field name={`credits.${index}.value`} component={InputSimple} placeholder="Value" readOnly={this.props.readOnly} /></td>
         <td>...</td>
       </tr>
-    )
+    ))
   }
 
   render() {
